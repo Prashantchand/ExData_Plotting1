@@ -8,7 +8,7 @@ if(!file.exists("household_power_consumption")){
   unzip(filename)
 }
 library(dplyr)
-Powerdata<-read.csv("household.txt",sep=";",header=TRUE,na.strings = "?")
+Powerdata<-read.csv("household_power_consumption.txt",sep=";",header=TRUE,na.strings = "?")
 data<-Powerdata[Powerdata$Date=="2/2/2007"|Powerdata$Date=="1/2/2007",]
 data<-mutate(data,datetime=as.POSIXct(paste(data$Date, data$Time), format = "%d/%m/%Y %H:%M:%S"))
 png("plot4.png",width = 480,height = 480)
